@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/nt-app/static/css/main.b100e6da.chunk.css",
+    "main.js": "/nt-app/static/js/main.01494c3e.chunk.js",
+    "main.js.map": "/nt-app/static/js/main.01494c3e.chunk.js.map",
+    "runtime-main.js": "/nt-app/static/js/runtime-main.d960572d.js",
+    "runtime-main.js.map": "/nt-app/static/js/runtime-main.d960572d.js.map",
+    "static/js/2.c75e8a7c.chunk.js": "/nt-app/static/js/2.c75e8a7c.chunk.js",
+    "static/js/2.c75e8a7c.chunk.js.map": "/nt-app/static/js/2.c75e8a7c.chunk.js.map",
+    "index.html": "/nt-app/index.html",
+    "precache-manifest.c839dac692a828bccd991ba11320d281.js": "/nt-app/precache-manifest.c839dac692a828bccd991ba11320d281.js",
+    "service-worker.js": "/nt-app/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/nt-app/static/css/main.b100e6da.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d960572d.js",
+    "static/js/2.c75e8a7c.chunk.js",
+    "static/css/main.b100e6da.chunk.css",
+    "static/js/main.01494c3e.chunk.js"
+  ]
+}
