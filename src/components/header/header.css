@@ -1,0 +1,19 @@
+.headerContainer {
+  justify-content: flex-start;
+}
+
+.headerLogo {
+  width: 225px;
+  height: auto;
+}
+
+.banner {
+  width: 100%;
+  background: transparent url(../../images/mob_bannerbkg.png) repeat-x scroll left top;
+}
+
+.bannerImage {
+  width: 275px;
+  height: 22px;
+  border: 0px;
+}
