@@ -1,0 +1,15 @@
+.topBanner {
+	background-color: #ffdb43;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	padding-bottom: 6px;
+}
+
+.bottomBanner {
+	background-color: #ffeeb2;
+	text-align: center;
+	font-size: 10pt;
+	line-height: 18px;
+	height: 18px;
+}

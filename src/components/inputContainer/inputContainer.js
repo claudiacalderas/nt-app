@@ -1,8 +1,8 @@
 import React from 'react';
 import './inputContainer.css';
 import axios from 'axios';
-import SelectRoute from './selectRoute/selectRoute.js';
-import SelectOption from './selectOption/selectOption.js';
+import SelectRoute from './selectRoute/selectRoute';
+import SelectOption from './selectOption/selectOption';
 import StopForm from './stopForm/stopForm'
 
 export default class InputContainer extends React.Component {
