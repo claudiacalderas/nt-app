@@ -65,7 +65,7 @@ class InputContainer extends React.Component {
 			<>
 				{this.state.redirectToResultsPage && <Redirect to='/results'/>}
 				<div className="selectContainer">
-					<SelectRoute 
+					<SelectRoute
 						label={'Select Route'}
 						data={this.props.routes}
 						onChange={this.handleRouteSelection}

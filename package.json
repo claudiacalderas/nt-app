@@ -22,7 +22,16 @@
     "test": "jest",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "e2e:dev": "start-server-and-test start http://localhost:3000 cy:open",
+    "cy:open": "cypress open"
+  },
+  "jest": {
+    "testMatch": [ "**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(test).[jt]s?(x)" ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/tools/styleMock.js"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +49,10 @@
     ]
   },
   "devDependencies": {
-    "redux-immutable-state-invariant": "^2.1.0"
+    "axe-core": "^3.4.0",
+    "cypress": "^3.7.0",
+    "cypress-axe": "^0.5.1",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "start-server-and-test": "^1.10.6"
   }
 }

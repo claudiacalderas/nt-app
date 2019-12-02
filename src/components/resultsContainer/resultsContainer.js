@@ -15,7 +15,7 @@ class ResultsContainer extends React.Component {
   intervalID = 0;
 
   setBannerData() {
-    (this.props.trips[0] && this.props.trips[0].DepartureText)
+    (this.props.trips && this.props.trips[0] && this.props.trips[0].DepartureText)
     ? this.setState({bannerData: this.props.trips[0].DepartureText})
     : this.setState({bannerData: undefined})
   }
@@ -54,18 +54,20 @@ class ResultsContainer extends React.Component {
   render() {
     return(
       <>
-        <TripDisplay 
-          route={this.props.route.Description}
-          direction={this.props.direction.Text}
-          stopText={this.props.stop.Text}
-          stopValue={this.props.stop.Value} 
-          stopNumber={this.props.stopNumber} />
-        <NexTripBanner 
-          data={this.state.bannerData} />
-        <div className="scheduleContainer">
-            <Schedule data={this.props.trips}/>
-            <BackButton />
-        </div>
+        <main>
+          <TripDisplay 
+            route={this.props.route.Description}
+            direction={this.props.direction.Text}
+            stopText={this.props.stop.Text}
+            stopValue={this.props.stop.Value} 
+            stopNumber={this.props.stopNumber} />
+          <NexTripBanner 
+            data={this.state.bannerData} />
+          <div className="scheduleContainer">
+              <Schedule data={this.props.trips}/>
+              <BackButton />
+          </div>
+        </main>
       </>
     )
   }
