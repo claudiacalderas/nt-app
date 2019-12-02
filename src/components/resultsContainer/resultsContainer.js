@@ -14,14 +14,19 @@ class ResultsContainer extends React.Component {
   }
   intervalID = 0;
 
+  setBannerData() {
+    (this.props.trips[0] && this.props.trips[0].DepartureText)
+    ? this.setState({bannerData: this.props.trips[0].DepartureText})
+    : this.setState({bannerData: undefined})
+  }
+
   componentDidMount() {
+    this.setBannerData();
     this.intervalID = setInterval( () => {
       if(this.props.stopNumber) {
         this.props.loadTrips({stopNumber: this.props.stopNumber})
         .then(() => {
-          (this.props.trips[0] && this.props.trips[0].DepartureText)
-            ? this.setState({bannerData: this.props.trips[0].DepartureText})
-            : this.setState({bannerData: undefined})
+          this.setBannerData();
         })
         .catch(error => {
           alert('Loading trips failed: ' + error);
@@ -30,9 +35,7 @@ class ResultsContainer extends React.Component {
         if (this.props.route.Route && this.props.direction.Value && this.props.stop.Value) {
           this.props.loadTrips({route: this.props.route.Route, direction: this.props.direction.Value, stop: this.props.stop.Value})
           .then(() => {
-            (this.props.trips[0] && this.props.trips[0].DepartureText)
-            ? this.setState({bannerData: this.props.trips[0].DepartureText})
-            : this.setState({bannerData: undefined})      
+            this.setBannerData();
           })
           .catch(error => {
             alert('Loading trips failed: ' + error);
