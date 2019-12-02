@@ -22,7 +22,8 @@ const NexTripBanner = props => {
 				<span>Current time: </span>
 					<Clock 
 						format={'hh:mm a'} 
-						ticking={false} />
+						ticking={false} 
+						interval={6000}/>
 			</div>
 		</>
 	);

@@ -50,6 +50,13 @@ export function saveStopSuccess(stop) {
   }
 }
 
+export function saveStopNumberSuccess(stopNumber) {
+  return { 
+    type: types.SAVE_STOP_NUMBER_SUCCESS,
+    stopNumber: stopNumber
+  }
+}
+
 export function loadRoutes() {
   return function(dispatch) {
     return apiCalls.getRoutes().then(routes => {
@@ -105,6 +112,12 @@ export function saveDirection(direction) {
 export function saveStop(stop) {
   return function(dispatch, getState) {
     return dispatch(saveStopSuccess(stop));
+  } 
+}
+
+export function saveStopNumber(stopNumber) {
+  return function(dispatch, getState) {
+    return dispatch(saveStopNumberSuccess(stopNumber));
   } 
 }
  

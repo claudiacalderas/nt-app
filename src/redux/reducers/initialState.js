@@ -6,4 +6,5 @@ export default {
   route: {},
   direction: {},
   stop: {},
+  stopNumber: null
 }

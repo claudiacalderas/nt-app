@@ -6,7 +6,7 @@ import trips from './tripsReducer';
 import route from './routeReducer';
 import direction from './directionReducer';
 import stop from './stopReducer';
-
+import stopNumber from './stopNumberReducer'
 
 const rootReducer = combineReducers({
   routes,
@@ -15,7 +15,8 @@ const rootReducer = combineReducers({
   trips,
   route,
   direction,
-  stop
+  stop,
+  stopNumber
 });
 
 export default rootReducer;

@@ -4,14 +4,11 @@ import SelectRoute from './selectRoute/SelectRoute';
 import SelectOption from './selectOption/SelectOption';
 import StopForm from './stopForm/StopForm';
 import { connect } from 'react-redux';
-import { loadRoutes, loadDirections, loadStops, loadTrips, saveRoute, saveDirection, saveStop } from '../../redux/actions/nextripActions';
+import { loadRoutes, loadDirections, loadStops, loadTrips, saveRoute, saveDirection, saveStop, saveStopNumber } from '../../redux/actions/nextripActions';
 import { Redirect } from 'react-router-dom';
 
 class InputContainer extends React.Component {
   state = {
-		direction: null,
-		stop: null,
-		stopNumber: null,
 		redirectToResultsPage: false
   }
   
@@ -23,8 +20,9 @@ class InputContainer extends React.Component {
   
 	handleRouteSelection = (selectedRoute) => {
 		this.props.saveRoute(selectedRoute);
-		// this.props.saveDirection({});
-		// this.props.saveStop({});
+		this.props.saveDirection({});
+		this.props.saveStop({});
+		this.props.saveStopNumber(null);
 		this.props.loadDirections(selectedRoute.Route).catch(error => {
 			alert('Loading directions failed: ' + error);
 		});
@@ -32,7 +30,7 @@ class InputContainer extends React.Component {
   
 	handleDirectionSelection = (selectedDirection) => {
 		this.props.saveDirection(selectedDirection);
-		// this.props.saveStop({});
+		this.props.saveStop({});
 		this.props.loadStops(this.props.route.Route, selectedDirection.Value).catch(error => {
 			alert('Loading stops failed: ' + error);
 		});
@@ -40,9 +38,9 @@ class InputContainer extends React.Component {
 
   
 	handleStopSelection = (selectedStop) => {
+		this.props.saveStop(selectedStop);
 		this.props.loadTrips({route: this.props.route.Route, direction: this.props.direction.Value, stop: selectedStop.Value})
 		.then(() => {
-			this.props.saveStop(selectedStop);
 			this.setState({redirectToResultsPage: true});
 		})
 		.catch(error => {
@@ -52,14 +50,13 @@ class InputContainer extends React.Component {
 
 
 	handleStopFormSubmit = (stopNumber) => {
-		this.setState({stopNumber: stopNumber}, () => {
-			this.props.loadTrips({stopNumber: this.state.stopNumber})
-			.then(() => {
-				this.setState({redirectToResultsPage: true});
-			})
-			.catch(error => {
-				alert('Loading trips failed: ' + error);
-			});
+		this.props.saveStopNumber(stopNumber);
+		this.props.loadTrips({stopNumber: stopNumber})
+		.then(() => {
+			this.setState({redirectToResultsPage: true});
+		})
+		.catch(error => {
+			alert('Loading trips failed: ' + error);
 		});
 	}
   
@@ -106,7 +103,8 @@ function mapStateToProps(state) {
 		trips: state.trips,
 		route: state.route,
 		direction: state.direction,
-		stop: state.stop
+		stop: state.stop,
+		stopNumber: state.stopNumber
 	}
 }
 
@@ -117,7 +115,8 @@ const mapDispatchToProps = {
 	loadTrips,
 	saveRoute,
 	saveDirection,
-	saveStop
+	saveStop,
+	saveStopNumber
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (InputContainer);
