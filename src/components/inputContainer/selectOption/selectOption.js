@@ -24,7 +24,7 @@ const SelectOption = props => {
   }, []);
 
   const handleChange = event => {
-    event.preventDefault();
+    event.preventDefault(); 
     setSelection(event.target.value);
     props.onChange(event.target.value);
   };
@@ -47,7 +47,7 @@ const SelectOption = props => {
         >
         
         {displayData.map((element, index) => {
-          return <MenuItem value={element.Value} key={index}>{element.Text}</MenuItem>
+          return <MenuItem value={element} key={index}>{element.Text}</MenuItem>
         })}
         </Select>
       </FormControl>

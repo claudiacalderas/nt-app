@@ -1,7 +1,14 @@
 import React from 'react';
-import './schedule.css';
+import './Schedule.css';
 
-export default function Schedule() {
+const getColoredText = (text) => {
+	const realTime = text.includes(':');
+	return realTime ? <span style={{color: '#D91E18'}}>{text}</span> : <span>{text}</span>
+}
+
+const Schedule = props => {
+	const displayData = props.data ? props.data : [];
+
 	return (
 		<div className="scheduleList">
 				<table style={{width: '100%'}}>
@@ -19,21 +26,15 @@ export default function Schedule() {
 							</tr>
 					</thead>
 					<tbody>
-							<tr>
-									<td style={{color: '#0053a0'}}><strong>Blue</strong></td>
-									<td style={{color: '#0053a0'}}>to Mall of America</td>
-									<td style={{textAlign: 'right'}}><strong>Due</strong></td>
-							</tr>
-							<tr>
-									<td style={{color: '#0053a0'}}><strong>Blue</strong></td>
-									<td style={{color: '#0053a0'}}>to Mpls-Target Field</td>
-									<td style={{textAlign: 'right'}}><strong>10:53</strong></td>
-							</tr>
-							<tr>
-									<td style={{color: '#0053a0'}}><strong>Blue</strong></td>
-									<td style={{color: '#0053a0'}}>to Mall of America</td>
-									<td style={{textAlign: 'right'}}><strong>12 Min</strong></td>
-							</tr>
+							{displayData.map((element, index) => {
+								return (
+									<tr key={index}>
+										<td style={{color: '#0053a0'}}><strong>{element.Route}</strong></td>
+										<td style={{color: '#0053a0'}}>{element.Description}</td>
+										<td style={{textAlign: 'right'}}><strong>{getColoredText(element.DepartureText)}</strong></td>
+									</tr>
+								)
+							})}
 					</tbody>
 					<tfoot>
 							<tr>
@@ -49,3 +50,5 @@ export default function Schedule() {
 		</div>
 	);
 }
+
+export default Schedule;

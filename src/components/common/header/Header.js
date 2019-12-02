@@ -1,7 +1,7 @@
 import React from 'react';
-import './header.css';
-import mtLogo from '../../images/mob_logo.png';
-import mtBanner from '../../images/mob_banner.png';
+import './Header.css';
+import mtLogo from '../../../images/mob_logo.png';
+import mtBanner from '../../../images/mob_banner.png';
 
 
 export default function Header() {

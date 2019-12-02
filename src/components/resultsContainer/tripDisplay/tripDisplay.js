@@ -1,18 +1,27 @@
 import React from 'react';
-import './tripDisplay.css'
+import './TripDisplay.css'
 
-export default function TripDisplay() {
-	return (
-		<div className="tripDisplay">
-			<div>
-					<span><strong>METRO Blue Line - </strong></span>
-					<span><strong>Northbound</strong></span>
-					<span><strong>Mall of America Station</strong></span>
+const TripDisplay = (props) => {
+	if (!props.route)
+		return (
+			<div className="tripDisplay">
+				<span><strong>Invalid data</strong></span>
 			</div>
-			<div>
-					<span>Stop Number: </span>
-					<span>51405</span>
+		)
+	else
+		return (
+			<div className="tripDisplay">
+				<div>
+						<span><strong>{props.route} - </strong></span>
+						<span><strong>{props.direction} </strong></span>
+						<span><strong>{props.stopText}</strong></span>
+				</div>
+				<div>
+						<span>Stop Number: </span>
+						<span>{props.stopNumber}</span>
+				</div>
 			</div>
-		</div>
-	);
+		);
 }
+
+export default TripDisplay;

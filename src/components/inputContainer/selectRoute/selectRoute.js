@@ -50,7 +50,7 @@ const SelectRoute = props => {
           {displayData.map((element, index) => {
             return (
               <MenuItem 
-                value={element.Route} 
+                value={element} 
                 key={index}
                 role="menuitem">
                 {element.Description}

@@ -1,6 +1,5 @@
 import React from 'react';
-import './stopForm.css';
-import axios from 'axios';
+import './StopForm.css';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -11,16 +10,8 @@ export default class StopForm extends React.Component {
     
 	handleSubmit = (event) => {
 		event.preventDefault();
-		axios
-			.get(`https://svc.metrotransit.org/NexTrip/${this.state.stopNumber}`)
-			.then(data => console.log('STOPS DATA', data))
-			.catch(err => {
-				console.log(err);
-				return null;
-			}) 
-		// const resp = await axios.get(`https://api.github.com/users/${this.state.userName}`);
-		// this.props.onSubmit(resp.data);
-		// this.setState({ stopNumber: '' });
+		this.props.onSubmit(this.state.stopNumber);
+		this.setState({ stopNumber: '' });
 	};
 
 	render() {
