@@ -44,7 +44,7 @@ class ResultsContainer extends React.Component {
           this.setState({bannerData: undefined})
         }
       }
-    },5000)
+    },60000)
   }
 
   componentWillUnmount() {
