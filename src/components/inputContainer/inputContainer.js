@@ -1,8 +1,8 @@
 import React from 'react';
-import './InputContainer.css';
-import SelectRoute from './selectRoute/SelectRoute';
-import SelectOption from './selectOption/SelectOption';
-import StopForm from './stopForm/StopForm';
+import './inputContainer.css';
+import SelectRoute from './selectRoute/selectRoute';
+import SelectOption from './selectOption/selectOption';
+import StopForm from './stopForm/stopForm';
 import { connect } from 'react-redux';
 import { loadRoutes, loadDirections, loadStops, loadTrips, saveRoute, saveDirection, saveStop, saveStopNumber } from '../../redux/actions/nextripActions';
 import { Redirect } from 'react-router-dom';

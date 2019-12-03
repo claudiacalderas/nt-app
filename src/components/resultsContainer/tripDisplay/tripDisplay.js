@@ -1,5 +1,5 @@
 import React from 'react';
-import './TripDisplay.css'
+import './tripDisplay.css'
 
 const TripDisplay = (props) => {
 	if (!props.route && !props.stopNumber) 

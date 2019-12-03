@@ -1,9 +1,9 @@
 import React from 'react';
-import './ResultsContainer.css'
-import TripDisplay from './tripDisplay/TripDisplay';
-import NexTripBanner from './nexTripBanner/NexTripBanner';
-import Schedule from './schedule/Schedule';
-import BackButton from './backButton/BackButton';
+import './resultsContainer.css'
+import TripDisplay from './tripDisplay/tripDisplay';
+import NexTripBanner from './nexTripBanner/nexTripBanner';
+import Schedule from './schedule/schedule';
+import BackButton from './backButton/backButton';
 import { connect } from 'react-redux';
 import { loadTrips } from '../../redux/actions/nextripActions';
 
