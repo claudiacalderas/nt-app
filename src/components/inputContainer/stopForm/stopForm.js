@@ -1,5 +1,5 @@
 import React from 'react';
-import './StopForm.css';
+import './stopForm.css';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 

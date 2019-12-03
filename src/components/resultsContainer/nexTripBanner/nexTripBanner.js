@@ -1,5 +1,5 @@
 import React from 'react';
-import './NexTripBanner.css';
+import './nexTripBanner.css';
 import Clock from 'react-live-clock';
 
 const getDisplayText = (text) => {

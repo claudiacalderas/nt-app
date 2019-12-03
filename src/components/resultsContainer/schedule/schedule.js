@@ -1,5 +1,5 @@
 import React from 'react';
-import './Schedule.css';
+import './schedule.css';
 
 const getColoredText = (text) => {
 	const realTime = text.includes(':');
