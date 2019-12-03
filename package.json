@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!ui-core)/\" --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -27,10 +27,13 @@
     "cy:open": "cypress open"
   },
   "jest": {
-    "testMatch": [ "**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(test).[jt]s?(x)" ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/fileMock.js",
       "\\.(css|less)$": "<rootDir>/tools/styleMock.js"
+    },
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.(css|scss|less)$": "jest-css-modules"
     }
   },
   "eslintConfig": {
@@ -50,9 +53,14 @@
   },
   "devDependencies": {
     "axe-core": "^3.4.0",
+    "babel-jest": "^24.9.0",
     "cypress": "^3.7.0",
     "cypress-axe": "^0.5.1",
+    "fetch-mock": "^8.0.0",
+    "jest-css-modules": "^2.1.0",
+    "react-test-renderer": "^16.12.0",
     "redux-immutable-state-invariant": "^2.1.0",
+    "redux-mock-store": "^1.5.3",
     "start-server-and-test": "^1.10.6"
   }
 }
